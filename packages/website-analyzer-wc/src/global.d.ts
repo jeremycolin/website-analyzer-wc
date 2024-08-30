@@ -8,4 +8,4 @@ declare module "*.css" {
   export default file;
 }
 
-declare const LOCALE: "en-US" | "fr-FR";
+declare const TRANSLATIONS: unknown;

@@ -16,86 +16,83 @@ import {
   addNoDataSpan,
 } from "./dom-utils";
 import { fetchPerformanceData } from "./performance/performance-api";
-import { localizedTranslations } from "./translations";
+import { Translations } from "./translations";
 
 customElements.define(
   "website-analyzer",
   class extends HTMLElement {
     constructor() {
       super();
-      const setup = async () => {
-        const translations = await localizedTranslations();
+      const translations = TRANSLATIONS as Translations;
 
-        try {
-          const shadowRoot = this.attachShadow({
-            mode: "open",
-          });
-          const template = document.createElement("template");
-          template.innerHTML = `<style>${style}</style>
+      try {
+        const shadowRoot = this.attachShadow({
+          mode: "open",
+        });
+        const template = document.createElement("template");
+        template.innerHTML = `<style>${style}</style>
 <div id="container">
   ${formHtml(translations)}
 </div>`;
 
-          shadowRoot.appendChild(template.content.cloneNode(true));
+        shadowRoot.appendChild(template.content.cloneNode(true));
 
-          const container = getContainer(shadowRoot);
-          const form = getForm(shadowRoot);
-          const input = getInput(shadowRoot);
+        const container = getContainer(shadowRoot);
+        const form = getForm(shadowRoot);
+        const input = getInput(shadowRoot);
 
-          let controller: AbortController;
+        let controller: AbortController;
 
-          async function logSubmit(event: Event) {
-            event.preventDefault();
-            cleanLoading(shadowRoot);
-            cleanResult(shadowRoot);
+        async function logSubmit(event: Event) {
+          event.preventDefault();
+          cleanLoading(shadowRoot);
+          cleanResult(shadowRoot);
 
-            if (controller) {
-              controller.abort(); // abort previous fetch request
-            }
-            controller = new AbortController();
-
-            const formData = new FormData(event.target as HTMLFormElement);
-            const { website } = Object.fromEntries(formData) as {
-              website: string;
-            };
-            const { isValid, httpUrl } = isValidUrl(website);
-            if (!isValid) {
-              addErrorToInput(input);
-              addErrorSpan(container, shadowRoot, translations);
-            } else {
-              cleanErrors(shadowRoot);
-              addLoadingSpinner(container, spinnerHtml);
-
-              try {
-                const data = await fetchPerformanceData(httpUrl, controller);
-                cleanLoading(shadowRoot);
-
-                addPerformanceBars(
-                  {
-                    lcp: data.originLoadingExperience.metrics
-                      .LARGEST_CONTENTFUL_PAINT_MS?.percentile,
-                    inp: data.originLoadingExperience.metrics
-                      .INTERACTION_TO_NEXT_PAINT?.percentile,
-                    cls: data.originLoadingExperience.metrics
-                      .CUMULATIVE_LAYOUT_SHIFT_SCORE?.percentile,
-                  },
-                  shadowRoot,
-                  translations
-                );
-              } catch (error) {
-                console.error("Unable to fetch peformance data: ", error);
-                cleanLoading(shadowRoot);
-                addNoDataSpan(container, translations);
-              }
-            }
-            return false;
+          if (controller) {
+            controller.abort(); // abort previous fetch request
           }
-          form.addEventListener("submit", logSubmit);
-        } catch (error) {
-          console.log(error);
+          controller = new AbortController();
+
+          const formData = new FormData(event.target as HTMLFormElement);
+          const { website } = Object.fromEntries(formData) as {
+            website: string;
+          };
+          const { isValid, httpUrl } = isValidUrl(website);
+          if (!isValid) {
+            addErrorToInput(input);
+            addErrorSpan(container, shadowRoot, translations);
+          } else {
+            cleanErrors(shadowRoot);
+            addLoadingSpinner(container, spinnerHtml);
+
+            try {
+              const data = await fetchPerformanceData(httpUrl, controller);
+              cleanLoading(shadowRoot);
+
+              addPerformanceBars(
+                {
+                  lcp: data.originLoadingExperience.metrics
+                    .LARGEST_CONTENTFUL_PAINT_MS?.percentile,
+                  inp: data.originLoadingExperience.metrics
+                    .INTERACTION_TO_NEXT_PAINT?.percentile,
+                  cls: data.originLoadingExperience.metrics
+                    .CUMULATIVE_LAYOUT_SHIFT_SCORE?.percentile,
+                },
+                shadowRoot,
+                translations
+              );
+            } catch (error) {
+              console.error("Unable to fetch peformance data: ", error);
+              cleanLoading(shadowRoot);
+              addNoDataSpan(container, translations);
+            }
+          }
+          return false;
         }
-      };
-      setup();
+        form.addEventListener("submit", logSubmit);
+      } catch (error) {
+        console.log(error);
+      }
     }
   }
 );

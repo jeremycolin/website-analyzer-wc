@@ -3,7 +3,7 @@
   flex-direction: column;
   padding: 1rem;
   padding-bottom: 0.5rem;
-  height: 25rem;
+  min-height: 26rem;
   background-color: #ffffff;
 }
 
@@ -31,6 +31,7 @@
 
 #input.error {
   border-color: #d93025;
+  padding: 1rem 0.5rem;
 }
 
 #span-error {
@@ -66,7 +67,7 @@ button {
 #performance-bars-container-legend {
   font-size: 1rem;
   font-weight: 600;
-  margin-top: 1rem;
+  margin-top: 2rem;
   color: #000000;
   text-align: left;
 }
@@ -110,4 +111,25 @@ button {
 
 .poor {
   background-color: #ff4e43;
+}
+
+@media only screen and (max-width: 600px) {
+  #form {
+    font-size: 0.8rem;
+  }
+  #input {
+    font-size: 0.8rem;
+  }
+  #performance-bars-container-legend {
+    font-size: 0.8rem;
+  }
+  button {
+    font-size: 0.8rem;
+  }
+  .legend-metric-title {
+    font-size: 0.8rem;
+  }
+  .legend-metric {
+    font-size: 0.8rem;
+  }
 }

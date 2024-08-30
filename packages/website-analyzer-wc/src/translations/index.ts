@@ -1,6 +1,3 @@
-export const localizedTranslations = async () =>
-  LOCALE === "en-US"
-    ? (await import("./en.json")).default
-    : (await import("./fr.json")).default;
+import localizedTranslations from "./en.json";
 
-export type Translations = Awaited<ReturnType<typeof localizedTranslations>>;
+export type Translations = typeof localizedTranslations;
