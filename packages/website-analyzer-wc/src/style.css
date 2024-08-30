@@ -1,20 +1,21 @@
 #container {
   display: flex;
   flex-direction: column;
-  padding: 2rem;
+  padding: 1rem;
   padding-bottom: 0.5rem;
-  height: 220px;
+  height: 25rem;
   background-color: #ffffff;
 }
+
 #form {
-  width: 100%;
-  height: 3rem;
   display: flex;
+  height: 3rem;
   font-size: 1rem;
 }
+
 #input {
-  padding: 0 0.5rem;
   flex: 1;
+  padding: 0 0.5rem;
   margin-right: 1rem;
   font-size: 1rem;
   background-color: #ffffff;
@@ -23,55 +24,74 @@
   border-radius: 4px;
   outline: none;
 }
+
 #input:focus {
   border: 2px solid #475569;
 }
+
 #input.error {
   border-color: #d93025;
 }
+
 #span-error {
   color: #d93025;
 }
+
 button {
   font-size: 1rem;
   cursor: pointer;
-  background: #475569;
   border: 0;
   padding: 0 1rem;
+  background: #475569;
   color: #ffffff;
 }
+
 #loading-spinner {
   height: 4rem;
   width: 4rem;
   margin: auto;
 }
 
-#performance-bar {
-  width: 100%;
+#no-data {
+  color: #000000;
+  margin: auto;
+  top: -1rem;
+  position: relative;
+}
+
+#performance-bars-container {
+  padding-top: 1rem;
+}
+
+#performance-bars-container-legend {
+  font-size: 1rem;
+  font-weight: 600;
   margin-top: 1rem;
   color: #000000;
+  text-align: left;
 }
-.legend {
+
+#performance-bar {
+  color: #000000;
+  height: 5rem;
+}
+
+.legend-metric-title {
+  text-align: left;
+  margin-top: 1rem;
+}
+
+.legend-metric {
   font-size: 1rem;
   font-weight: 500;
-  margin-bottom: 0.3rem;
+  margin: 0.5rem 0;
 }
-.legend-top {
-  margin: 1.5rem 0;
-}
+
 .bar {
   width: 100%;
   height: 1rem;
 }
-.good {
-  background-color: #0cce6a;
-}
-.fair {
-  background-color: #ffa400;
-}
-.poor {
-  background-color: #ff4e43;
-}
+
 .marker {
   display: inline-block;
   border-right: 2px solid black;
@@ -79,7 +99,15 @@ button {
   position: relative;
   top: -24px;
 }
-.compare {
-  font-size: 12px;
-  margin-left: 3px;
+
+.good {
+  background-color: #0cce6a;
+}
+
+.fair {
+  background-color: #ffa400;
+}
+
+.poor {
+  background-color: #ff4e43;
 }

@@ -1,0 +1,10 @@
+{
+  "input.placeholder": "Enter your website URL",
+  "button.analyze": "Analyze",
+  "span.error": "Enter a valid URL",
+  "span.no-data": "Sorry we are not able to find reliable performance data for this URL",
+  "performance-bar.legend": "Metrics for real users measured by Google Chrome at the 75th percentile on mobile",
+  "lcp.legend": "Is it visible fast?",
+  "cls.legend": "Is it stable?",
+  "inp.legend": "Is it responsive?"
+}
