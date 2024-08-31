@@ -27,7 +27,7 @@ jobs:
           ls ${{ github.workspace }}
 
       - name: go to correctdir
-        run: cd packages/website-analyzer-wcxs
+        run: cd packages/website-analyzer-wc
 
       - name: List files in the repository aftere cd
         run: |
