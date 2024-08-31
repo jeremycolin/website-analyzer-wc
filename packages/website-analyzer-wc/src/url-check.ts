@@ -1,7 +1,5 @@
-const VALID_HTTP_URL_PATTERN =
-  /https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)/gi;
-const VALID_NON_HTTP_URL_PATTERN =
-  /(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)/gi;
+const VALID_HTTP_URL_PATTERN = /https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)/gi;
+const VALID_NON_HTTP_URL_PATTERN = /(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)/gi;
 
 const VALID_HTTP_URL_REGEX = new RegExp(VALID_HTTP_URL_PATTERN);
 const VALID_NON_HTTP_URL_REGEX = new RegExp(VALID_NON_HTTP_URL_PATTERN);

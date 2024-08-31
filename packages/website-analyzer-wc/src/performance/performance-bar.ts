@@ -15,20 +15,15 @@ const formatMetric = (vital: Vital, value: number) => {
   }
 };
 
-export const performanceBar = (
-  value: number,
-  metric: Vital,
-  translations: Translations
-) => {
+export const performanceBar = (value: number, metric: Vital, translations: Translations) => {
   const formattedMetric = formatMetric(metric, value);
 
-  const { goodGrow, fairGrow, poorGrow, metricPos, markerAdjust } =
-    recommendationMetricAlgo({
-      fair: THRESHOLDS[metric].fair,
-      poor: THRESHOLDS[metric].poor,
-      displayEnd: THRESHOLDS[metric].display,
-      value,
-    });
+  const { goodGrow, fairGrow, poorGrow, metricPos, markerAdjust } = recommendationMetricAlgo({
+    fair: THRESHOLDS[metric].fair,
+    poor: THRESHOLDS[metric].poor,
+    displayEnd: THRESHOLDS[metric].display,
+    value,
+  });
 
   return `<div id="performance-bar">
   <div class="legend-metric-title">

@@ -9,8 +9,8 @@ importers:
   packages/website-analyzer-demo:
     dependencies:
       website-analyzer-wc:
-        specifier: 1.0.0
-        version: link:../website-analyzer-wc
+        specifier: 0.1.0
+        version: 0.1.0
     devDependencies:
       typescript:
         specifier: ^5.5.3
@@ -522,6 +522,9 @@ packages:
       terser:
         optional: true
 
+  website-analyzer-wc@0.1.0:
+    resolution: {integrity: sha512-6ilHb+pubYRcUvn4iDwyf+gATJ1CACXfIfTiZRSdLU7EqGvTbvniu1FSBA14tVWSkBf7n1N+GmSE1wMs3+eDdA==}
+
 snapshots:
 
   '@esbuild/aix-ppc64@0.21.5':
@@ -895,3 +898,5 @@ snapshots:
     optionalDependencies:
       fsevents: 2.3.3
       terser: 5.31.6
+
+  website-analyzer-wc@0.1.0: {}

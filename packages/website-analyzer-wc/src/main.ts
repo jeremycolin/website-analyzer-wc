@@ -69,12 +69,9 @@ export class WebsiteAnalyzer extends HTMLElement {
 
             addPerformanceBars(
               {
-                lcp: data.originLoadingExperience.metrics
-                  .LARGEST_CONTENTFUL_PAINT_MS?.percentile,
-                inp: data.originLoadingExperience.metrics
-                  .INTERACTION_TO_NEXT_PAINT?.percentile,
-                cls: data.originLoadingExperience.metrics
-                  .CUMULATIVE_LAYOUT_SHIFT_SCORE?.percentile,
+                lcp: data.originLoadingExperience.metrics.LARGEST_CONTENTFUL_PAINT_MS?.percentile,
+                inp: data.originLoadingExperience.metrics.INTERACTION_TO_NEXT_PAINT?.percentile,
+                cls: data.originLoadingExperience.metrics.CUMULATIVE_LAYOUT_SHIFT_SCORE?.percentile,
               },
               shadowRoot,
               translations

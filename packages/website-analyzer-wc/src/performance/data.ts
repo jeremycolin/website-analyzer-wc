@@ -15,14 +15,8 @@ export interface Metric {
   value: number;
 }
 
-export const recommendationMetricAlgo = ({
-  fair,
-  poor,
-  value,
-  displayEnd,
-}: Metric) => {
-  const range: "good" | "fair" | "poor" =
-    value < fair ? "good" : value < poor ? "fair" : "poor";
+export const recommendationMetricAlgo = ({ fair, poor, value, displayEnd }: Metric) => {
+  const range: "good" | "fair" | "poor" = value < fair ? "good" : value < poor ? "fair" : "poor";
 
   let end = displayEnd; // good number for LCP
 

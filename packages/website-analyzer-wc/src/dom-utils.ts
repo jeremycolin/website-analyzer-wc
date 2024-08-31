@@ -2,14 +2,11 @@ import { VITALS } from "./performance/data";
 import { performanceBar } from "./performance/performance-bar";
 import { Translations } from "./translations";
 
-export const getContainer = (shadowRoot: ShadowRoot) =>
-  shadowRoot.getElementById("container") as HTMLDivElement;
+export const getContainer = (shadowRoot: ShadowRoot) => shadowRoot.getElementById("container") as HTMLDivElement;
 
-export const getForm = (shadowRoot: ShadowRoot) =>
-  shadowRoot.getElementById("form") as HTMLFormElement;
+export const getForm = (shadowRoot: ShadowRoot) => shadowRoot.getElementById("form") as HTMLFormElement;
 
-export const getInput = (shadowRoot: ShadowRoot) =>
-  shadowRoot.getElementById("input") as HTMLFormElement;
+export const getInput = (shadowRoot: ShadowRoot) => shadowRoot.getElementById("input") as HTMLFormElement;
 
 export const getSpanError = (shadowRoot: ShadowRoot) =>
   shadowRoot.getElementById("span-error") as HTMLSpanElement | null;
@@ -18,12 +15,9 @@ export const getLoadingSpinner = (shadowRoot: ShadowRoot) =>
   shadowRoot.getElementById("loading-spinner") as HTMLElement | null;
 
 export const getResults = (shadowRoot: ShadowRoot) =>
-  shadowRoot.getElementById(
-    "performance-bars-container"
-  ) as HTMLDivElement | null;
+  shadowRoot.getElementById("performance-bars-container") as HTMLDivElement | null;
 
-export const getNoData = (shadowRoot: ShadowRoot) =>
-  shadowRoot.getElementById("no-data") as HTMLSpanElement | null;
+export const getNoData = (shadowRoot: ShadowRoot) => shadowRoot.getElementById("no-data") as HTMLSpanElement | null;
 
 export function addErrorToInput(input: HTMLFormElement) {
   if (!input.classList.contains("errror")) {
@@ -31,11 +25,7 @@ export function addErrorToInput(input: HTMLFormElement) {
   }
 }
 
-export function addErrorSpan(
-  container: HTMLDivElement,
-  shadowRoot: ShadowRoot,
-  translations: Translations
-) {
+export function addErrorSpan(container: HTMLDivElement, shadowRoot: ShadowRoot, translations: Translations) {
   if (!getSpanError(shadowRoot)) {
     const spanError = document.createElement("span");
     spanError.id = "span-error";
@@ -73,19 +63,13 @@ export function cleanErrors(shadowRoot: ShadowRoot) {
   }
 }
 
-export function addLoadingSpinner(
-  container: HTMLDivElement,
-  spinnerHtml: string
-) {
+export function addLoadingSpinner(container: HTMLDivElement, spinnerHtml: string) {
   const spinnerSvg = document.createElement("template");
   spinnerSvg.innerHTML = spinnerHtml;
   container.appendChild(spinnerSvg.content.cloneNode(true));
 }
 
-export function addNoDataSpan(
-  container: HTMLDivElement,
-  translations: Translations
-) {
+export function addNoDataSpan(container: HTMLDivElement, translations: Translations) {
   const noDataSpan = document.createElement("span");
   noDataSpan.id = "no-data";
   noDataSpan.innerHTML = translations["span.no-data"];
@@ -101,19 +85,13 @@ export function addPerformanceBars(
   performanceBarsContainer.id = "performance-bars-container";
 
   getContainer(shadowRoot).appendChild(performanceBarsContainer);
-  VITALS.forEach((metric) => {
+  VITALS.forEach(metric => {
     if (typeof data[metric] === "undefined") {
       return;
     }
     const performanceBarTemplate = document.createElement("template");
-    performanceBarTemplate.innerHTML = performanceBar(
-      data[metric],
-      metric,
-      translations
-    );
-    performanceBarsContainer.appendChild(
-      performanceBarTemplate.content.cloneNode(true)
-    );
+    performanceBarTemplate.innerHTML = performanceBar(data[metric], metric, translations);
+    performanceBarsContainer.appendChild(performanceBarTemplate.content.cloneNode(true));
   });
 
   const legend = document.createElement("div");

@@ -1,11 +1,10 @@
-const PAGE_SPEED_INSIGHTS_API =
-  "https://www.googleapis.com/pagespeedonline/v5/runPagespeed";
+const PAGE_SPEED_INSIGHTS_API = "https://www.googleapis.com/pagespeedonline/v5/runPagespeed";
 const category = "PERFORMANCE";
 const strategy = "MOBILE";
 
 export async function fetchPerformanceData(
   website: string,
-  controller: AbortController
+  controller: AbortController,
 ): Promise<{
   originLoadingExperience: {
     metrics: {
@@ -16,13 +15,11 @@ export async function fetchPerformanceData(
   };
 }> {
   return fetch(
-    `${PAGE_SPEED_INSIGHTS_API}?url=${encodeURIComponent(
-      website
-    )}&category=${category}&strategy=${strategy}`,
+    `${PAGE_SPEED_INSIGHTS_API}?url=${encodeURIComponent(website)}&category=${category}&strategy=${strategy}`,
     {
       signal: controller.signal,
       headers: { "Content-Type": "application/json" },
-    }
+    },
   ).then((response) => {
     if (!response.ok) {
       throw `Unable to fetch data, status: response.status`;
