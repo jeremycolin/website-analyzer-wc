@@ -8,7 +8,8 @@
   "type": "module",
   "scripts": {
     "build": "rollup --config rollup.config.mjs",
-    "build:iife": "rollup --config rollup-iife.config.mjs"
+    "build:iife": "rollup --config rollup-iife.config.mjs",
+    "prepublishOnly": "pnpm run build && pnpm run build:iifee"
   },
   "keywords": [
     "web performance",
