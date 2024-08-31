@@ -9,7 +9,7 @@
   "scripts": {
     "build": "rollup --config rollup.config.mjs",
     "build:iife": "rollup --config rollup-iife.config.mjs",
-    "prepublishOnly": "pnpm run build && pnpm run build:iifee"
+    "prepublishOnly": "pnpm run build && pnpm run build:iife"
   },
   "keywords": [
     "web performance",
