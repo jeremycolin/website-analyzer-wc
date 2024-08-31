@@ -3,21 +3,19 @@
   flex-direction: column;
   padding: 1rem;
   padding-bottom: 0.5rem;
-  min-height: 26rem;
+  min-height: 25rem;
   background-color: #ffffff;
 }
 
 #form {
   display: flex;
   height: 3rem;
-  font-size: 1rem;
 }
 
 #input {
   flex: 1;
   padding: 0 0.5rem;
   margin-right: 1rem;
-  font-size: 1rem;
   background-color: #ffffff;
   color: #000000;
   border: 2px solid #94a3b8;
@@ -36,10 +34,10 @@
 
 #span-error {
   color: #d93025;
+  padding: 0.5rem;
 }
 
 button {
-  font-size: 1rem;
   cursor: pointer;
   border: 0;
   padding: 0 1rem;
@@ -56,16 +54,9 @@ button {
 #no-data {
   color: #000000;
   margin: auto;
-  top: -1rem;
-  position: relative;
-}
-
-#performance-bars-container {
-  padding-top: 1rem;
 }
 
 #performance-bars-container-legend {
-  font-size: 1rem;
   font-weight: 600;
   margin-top: 2rem;
   color: #000000;
@@ -83,7 +74,6 @@ button {
 }
 
 .legend-metric {
-  font-size: 1rem;
   font-weight: 500;
   margin: 0.5rem 0;
 }
@@ -113,23 +103,30 @@ button {
   background-color: #ff4e43;
 }
 
+#form,
+#input,
+#performance-bars-container-legend,
+button,
+.legend-metric-title,
+.legend-metric {
+  font-size: 1rem;
+}
+
 @media only screen and (max-width: 600px) {
-  #form {
-    font-size: 0.8rem;
-  }
-  #input {
-    font-size: 0.8rem;
-  }
-  #performance-bars-container-legend {
-    font-size: 0.8rem;
-  }
-  button {
-    font-size: 0.8rem;
-  }
-  .legend-metric-title {
-    font-size: 0.8rem;
-  }
+  #form,
+  #input,
+  #performance-bars-container-legend,
+  button,
+  .legend-metric-title,
   .legend-metric {
     font-size: 0.8rem;
+  }
+
+  .legend-metric-title {
+    margin-top: 0.6rem;
+  }
+
+  #performance-bars-container-legend {
+    margin-top: 1rem;
   }
 }

@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "target": "ESNext",
+    "target": "ES2015",
     "module": "ESNext",
     "lib": ["ES2019", "DOM", "DOM.Iterable"],
     "skipLibCheck": false,
