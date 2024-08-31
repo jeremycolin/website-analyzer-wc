@@ -1,7 +1,6 @@
 name: CI
 
 on:
-  pull_request:
   push:
     branches:
       - main
@@ -16,6 +15,10 @@ jobs:
     strategy:
       matrix:
         node-version: [20]
+    defaults:
+      run:
+        working-directory: ./packages/website-analyzer-wc
+
     steps:
       - uses: actions/checkout@v4
 
@@ -34,17 +37,6 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: "22"
-
-      - name: List files in the repository
-        run: |
-          ls ${{ github.workspace }}
-
-      - name: go to correctdir
-        run: cd packages/website-analyzer-wc
-
-      - name: List files in the repository aftere cd
-        run: |
-          ls ${{ github.workspace }}
 
       - name: Install dependencies
         run: pnpm install
