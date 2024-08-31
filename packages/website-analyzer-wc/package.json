@@ -37,7 +37,6 @@
     "url": "https://github.com/jeremycolin/website-analyzer-wc.git"
   },
   "files": [
-    "dist",
-    "../../README.md"
+    "dist"
   ]
 }
