@@ -1,0 +1,40 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  ci:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Use Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: List files in the repository
+        run: |
+          ls ${{ github.workspace }}
+
+      - name: go to correctdir
+        run: cd packages/website-analyzer-wcxs
+
+      - name: List files in the repository aftere cd
+        run: |
+          ls ${{ github.workspace }}
+
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Run CI
+        run: pnpm run build

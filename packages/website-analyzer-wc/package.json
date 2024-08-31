@@ -26,5 +26,17 @@
     "rollup-plugin-import-css": "^3.5.1",
     "tslib": "^2.7.0",
     "typescript": "^5.5.4"
-  }
+  },
+  "homepage": "https://github.com/jeremycolin/website-analyzer-wc/",
+  "bugs": {
+    "url": "https://github.com/jeremycolin/website-analyzer-wc/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jeremycolin/website-analyzer-wc.git"
+  },
+  "files": [
+    "dist",
+    "../../README.md"
+  ]
 }
