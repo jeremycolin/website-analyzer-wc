@@ -1,7 +1,7 @@
 {
   "name": "website-analyzer-wc",
   "author": "Jeremy Colin",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "description": "Web component to show website performance",
   "main": "dist/main.js",
   "module": "dist/main.js",
