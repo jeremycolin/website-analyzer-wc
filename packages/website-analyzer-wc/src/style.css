@@ -3,7 +3,7 @@
   flex-direction: column;
   padding: 1rem;
   padding-bottom: 0.5rem;
-  min-height: 25rem;
+  min-height: 27rem;
   background-color: #ffffff;
 }
 
@@ -70,12 +70,13 @@ button {
 
 .legend-metric-title {
   text-align: left;
-  margin-top: 1rem;
+  margin-top: 1.5rem;
 }
 
 .legend-metric {
   font-weight: 500;
-  margin: 0.5rem 0;
+  margin-top: 0.2rem;
+  margin-bottom: 0.5rem;
 }
 
 .bar {
@@ -128,5 +129,9 @@ button,
 
   #performance-bars-container-legend {
     margin-top: 1rem;
+  }
+
+  #container {
+    min-height: 25rem;
   }
 }
