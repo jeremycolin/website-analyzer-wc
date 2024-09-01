@@ -79,6 +79,6 @@ You can uncomment `link-workspace-packages=true` in the .nmprc to link them loca
 
 ## Credits
 
-Thanks to [lbineau](https://github.com/lbineau) for inspiring me to gte started with web components
+Thanks to [lbineau](https://github.com/lbineau) for inspiring me to get started with web components
 
 ## License: MIT
