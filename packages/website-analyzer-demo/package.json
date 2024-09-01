@@ -9,7 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "website-analyzer-wc": "1.0.0"
+    "website-analyzer-wc": "1.0.1"
   },
   "devDependencies": {
     "typescript": "^5.5.3",

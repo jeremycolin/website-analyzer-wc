@@ -15,7 +15,7 @@ import {
   addPerformanceBars,
   addNoDataSpan,
 } from "./dom-utils";
-import { fetchPerformanceData } from "./performance/performance-api";
+import { fetchPerformanceData } from "./performance/apis/pagespeed-insights";
 import { Translations } from "./translations";
 
 export class WebsiteAnalyzer extends HTMLElement {
@@ -66,16 +66,7 @@ export class WebsiteAnalyzer extends HTMLElement {
           try {
             const data = await fetchPerformanceData(httpUrl, controller);
             cleanLoading(shadowRoot);
-
-            addPerformanceBars(
-              {
-                lcp: data.originLoadingExperience.metrics.LARGEST_CONTENTFUL_PAINT_MS?.percentile,
-                inp: data.originLoadingExperience.metrics.INTERACTION_TO_NEXT_PAINT?.percentile,
-                cls: data.originLoadingExperience.metrics.CUMULATIVE_LAYOUT_SHIFT_SCORE?.percentile,
-              },
-              shadowRoot,
-              translations
-            );
+            addPerformanceBars(data, shadowRoot, translations);
           } catch (error) {
             console.error("Unable to fetch peformance data: ", error);
             cleanLoading(shadowRoot);
