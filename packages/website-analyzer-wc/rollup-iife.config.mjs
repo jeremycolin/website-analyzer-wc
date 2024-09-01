@@ -8,7 +8,7 @@ import FR from "./src/translations/fr.json" assert { type: "json" };
 export default {
   input: "src/main.ts",
   output: {
-    file: "dist/main-iife.js",
+    file: "dist-script/main-iife.js",
     format: "iife",
     intro: `const TRANSLATIONS = ${JSON.stringify(EN)};`,
   },

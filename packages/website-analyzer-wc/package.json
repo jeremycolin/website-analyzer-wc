@@ -1,7 +1,7 @@
 {
   "name": "website-analyzer-wc",
   "author": "Jeremy Colin",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Web component to show website performance",
   "main": "dist/main.js",
   "module": "dist/main.js",
@@ -10,7 +10,7 @@
     "build": "rollup --config rollup.config.mjs",
     "build:iife": "rollup --config rollup-iife.config.mjs",
     "prepublish:copy": "node scripts/prepublish-copy.mjs",
-    "prepublishOnly": "pnpm run build && pnpm run build:iife"
+    "prepublishOnly": "pnpm run build && pnpm run build:iife && pnpm run prepublish:copy"
   },
   "keywords": [
     "web performance",
