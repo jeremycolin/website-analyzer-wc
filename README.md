@@ -1,11 +1,30 @@
 # Website Analyzer Web Component
 
+<p>
+  <a href="https://www.webcomponents.org/element/website-analyzer-wc" targe="_blank">
+    <img alt="Size" src="https://img.shields.io/badge/webcomponents.org-published-blue.svg" />
+  </a>
+  <a href="https://bundlephobia.com/package/website-analyzer-wc" targe="_blank">
+    <img alt="Size" src="https://img.shields.io/bundlephobia/minzip/website-analyzer-wc" />
+  </a>
+</p>
+
 ## Installation and Usage
 
 ### Installation as a npm package
 
+Use one of your favorite package manager:
+
+```bash
+npm install website-analyzer-wc
+```
+
 ```bash
 pnpm install website-analyzer-wc
+```
+
+```bash
+yarn install website-analyzer-wc
 ```
 
 ### Usage as a npm package
