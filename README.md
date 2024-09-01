@@ -9,6 +9,8 @@
   </a>
 </p>
 
+It's a no framework, no dependency built component that weighs a litte over 3kb <3
+
 ## Installation and Usage
 
 ### Installation as a npm package
