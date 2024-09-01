@@ -5,12 +5,15 @@ import css from "rollup-plugin-import-css";
 import EN from "./src/translations/en.json" assert { type: "json" };
 import FR from "./src/translations/fr.json" assert { type: "json" };
 
+const LANG = process.env.LANG === "fr" ? FR : EN;
+const file = process.env.LANG === "fr" ? "main-iife-fr.js" : "main-iife-en.js";
+
 export default {
   input: "src/main.ts",
   output: {
-    file: "dist-script/main-iife.js",
+    file: `dist-script/${file}`,
     format: "iife",
-    intro: `const TRANSLATIONS = ${JSON.stringify(EN)};`,
+    intro: `const TRANSLATIONS = ${JSON.stringify(LANG)};`,
   },
   plugins: [
     typescript({

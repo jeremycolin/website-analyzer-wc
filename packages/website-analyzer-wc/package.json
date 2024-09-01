@@ -8,7 +8,9 @@
   "type": "module",
   "scripts": {
     "build": "rollup --config rollup.config.mjs",
-    "build:iife": "rollup --config rollup-iife.config.mjs",
+    "build:iife:en": "LANG=EN rollup --config rollup-iife.config.mjs",
+    "build:iife:fr": "LANG=FR rollup --config rollup-iife.config.mjs",
+    "build:iife": "pnpm run build:iife:en && pnpm run build:iife:fr",
     "prepublish:copy": "node scripts/prepublish-copy.mjs",
     "prepublishOnly": "pnpm run build && pnpm run build:iife && pnpm run prepublish:copy"
   },

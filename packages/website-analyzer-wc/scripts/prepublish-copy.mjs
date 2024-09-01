@@ -12,10 +12,12 @@ copyFileSync(resolve(ROOT_DIR, "README.md"), resolve(SOURCE_DIR, "README.md"));
 copyFileSync(resolve(ROOT_DIR, "screenshot.png"), resolve(SOURCE_DIR, "screenshot.png"));
 
 // create ready to copy script tag and write it to disk
-const sourceCodeIIFE = readFileSync(resolve(DIST_SCRIPT_DIR, "main-iife.js"), "utf8").toString();
+["fr", "en"].forEach((lang) => {
+  const sourceCodeIIFE = readFileSync(resolve(DIST_SCRIPT_DIR, `main-iife-${lang}.js`), "utf8").toString();
 
-writeFileSync(
-  resolve(DIST_SCRIPT_DIR, "script.html"),
-  `<script>
+  writeFileSync(
+    resolve(DIST_SCRIPT_DIR, `script-${lang}.html`),
+    `<script>
 ${sourceCodeIIFE}</script>`
-);
+  );
+});
