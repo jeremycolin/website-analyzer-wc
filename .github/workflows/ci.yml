@@ -34,5 +34,5 @@ jobs:
         run: pnpm install
 
       - name: Run CI
-        run: pnpm run build
+        run: pnpm run build && pnpm run build:iife
         working-directory: ./packages/website-analyzer-wc
