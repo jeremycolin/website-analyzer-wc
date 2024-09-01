@@ -8,11 +8,14 @@ const DIST_SCRIPT_DIR = resolve(__dirname, "..", "dist-script");
 // copy root repository README file inside published package
 copyFileSync(resolve(ROOT_DIR, "README.md"), resolve(SOURCE_DIR, "README.md"));
 
+// copy screenshot
+copyFileSync(resolve(ROOT_DIR, "screenshot.png"), resolve(SOURCE_DIR, "screenshot.png"));
+
 // create ready to copy script tag and write it to disk
 const sourceCodeIIFE = readFileSync(resolve(DIST_SCRIPT_DIR, "main-iife.js"), "utf8").toString();
 
 writeFileSync(
-  resolve(DIST_SCRIPT_DIR, "main-script.html"),
+  resolve(DIST_SCRIPT_DIR, "script.html"),
   `<script>
 ${sourceCodeIIFE}</script>`
 );

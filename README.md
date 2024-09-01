@@ -1,12 +1,40 @@
 # Website Analyzer Web Component
 
-## Installation
+## Installation and Usage
 
-TODO when published
+### Installation as a npm package
 
-## Usage
+```bash
+pnpm install website-analyzer-wc
+```
 
-TODO: Write usage instructions
+### Usage as a npm package
+
+In the file where you want to use it, import the package:
+
+```javascript
+import "website-analyzer-wc";
+```
+
+and anywhere in your html / jsx use the tag `<website-analyzer />`
+
+### Installation as a direct script
+
+Copy the content of [main-script.html](./packages/website-analyzer-wc/dist-script/script.html) inside your HTML code, for example inside your <head> tag
+
+### Usage as a direct script
+
+Use the tag `<website-analyzer />` anywhere you want in your HTML code
+
+## Examples
+
+### UI
+
+The UI looks like this: ![screenshot of web component](./screenshot.png)
+
+### Code
+
+Usage of exampe is in [./packages/website-analyzer-demo](./packages/website-analyzer-demo)
 
 ## Develop
 
@@ -16,7 +44,11 @@ Project is using pnpm with [Corepack](https://pnpm.io/installation#using-corepac
 pnpm install
 ```
 
-## Contributing
+The package `website-analyzer-wc` contains the web component source code and the package `website-analyzer-demo` contains a simple demo setup.
+
+You can uncomment `link-workspace-packages=true` in the .nmprc to link them locally to develop
+
+## Contribute
 
 1. Fork it!
 2. Create your feature branch: `git checkout -b my-new-feature`

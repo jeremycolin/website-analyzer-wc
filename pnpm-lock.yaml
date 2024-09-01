@@ -11,8 +11,8 @@ importers:
   packages/website-analyzer-demo:
     dependencies:
       website-analyzer-wc:
-        specifier: 0.1.0
-        version: 0.1.0
+        specifier: ^0.2.0
+        version: 0.2.0
     devDependencies:
       typescript:
         specifier: ^5.5.3
@@ -530,8 +530,8 @@ packages:
       terser:
         optional: true
 
-  website-analyzer-wc@0.1.0:
-    resolution: {integrity: sha512-6ilHb+pubYRcUvn4iDwyf+gATJ1CACXfIfTiZRSdLU7EqGvTbvniu1FSBA14tVWSkBf7n1N+GmSE1wMs3+eDdA==}
+  website-analyzer-wc@0.2.0:
+    resolution: {integrity: sha512-ouIxor4r+xwhHWsLHWA4ibJVd40LzmoyHNI1fFp27VBMnPdefgym+EULuJ9YC3J1fpbWR1ir5GT6fihHcP7LpA==}
 
 snapshots:
 
@@ -916,4 +916,4 @@ snapshots:
       fsevents: 2.3.3
       terser: 5.31.6
 
-  website-analyzer-wc@0.1.0: {}
+  website-analyzer-wc@0.2.0: {}

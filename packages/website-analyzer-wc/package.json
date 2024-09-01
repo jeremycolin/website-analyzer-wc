@@ -1,7 +1,7 @@
 {
   "name": "website-analyzer-wc",
   "author": "Jeremy Colin",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Web component to show website performance",
   "main": "dist/main.js",
   "module": "dist/main.js",
@@ -38,6 +38,7 @@
     "url": "https://github.com/jeremycolin/website-analyzer-wc.git"
   },
   "files": [
-    "dist"
+    "dist",
+    "screenshot.png"
   ]
 }
