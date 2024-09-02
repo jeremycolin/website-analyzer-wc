@@ -41,7 +41,7 @@ and anywhere in your html / jsx use the tag `<website-analyzer />`
 
 ### Installation as a direct script
 
-Copy the content of [main-script.html](./packages/website-analyzer-wc/dist-script/script.html) inside your HTML code, for example inside your <head> tag
+Copy the content of [script-en.html](./packages/website-analyzer-wc/dist-script/script-en.html) inside your HTML code, for example inside your <head> tag
 
 ### Usage as a direct script
 

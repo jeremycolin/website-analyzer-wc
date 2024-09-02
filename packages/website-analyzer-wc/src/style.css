@@ -5,6 +5,7 @@
   padding-bottom: 0.5rem;
   min-height: 27rem;
   background-color: #ffffff;
+  line-height: initial;
 }
 
 #form {
