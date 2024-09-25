@@ -9,3 +9,5 @@ declare module "*.css" {
 }
 
 declare const TRANSLATIONS: unknown;
+
+declare const html: typeof String.raw;
