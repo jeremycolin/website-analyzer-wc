@@ -28,10 +28,10 @@ export class WebsiteAnalyzer extends HTMLElement {
         mode: "open",
       });
       const template = document.createElement("template");
-      template.innerHTML = `<style>${style}</style>
-<div id="container">
-  ${formHtml(translations)}
-</div>`;
+      template.innerHTML = html`<style>
+          ${style}
+        </style>
+        <div id="container">${formHtml(translations)}</div>`;
 
       shadowRoot.appendChild(template.content.cloneNode(true));
 

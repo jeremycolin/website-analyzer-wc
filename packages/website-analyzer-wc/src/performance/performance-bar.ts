@@ -25,27 +25,28 @@ export const performanceBar = (value: number, metric: Vital, translations: Trans
     value,
   });
 
-  return `<div id="performance-bar">
-  <div class="legend-metric-title">
-    ${translations[`${metric}.legend`]}
-    <a href="https://web.dev/${metric}">${metric.toUpperCase()}</a>
-  </div>
-  <div class="legend-metric" style="padding-left: calc(${metricPos}% - ${markerAdjust}px - ${
-    formattedMetric.length * 4
-  }px);">
-     ${formattedMetric}
-  </div>
-  <div style="display: flex">
-    <span style="flex-grow: ${goodGrow}; margin-right: 1px;">
+  return html`<div id="performance-bar">
+    <div class="legend-metric-title">
+      ${translations[`${metric}.legend`]}
+      <a href="https://web.dev/${metric}">${metric.toUpperCase()}</a>
+    </div>
+    <div
+      class="legend-metric"
+      style="padding-left: calc(${metricPos}% - ${markerAdjust}px - ${formattedMetric.length * 4}px);"
+    >
+      ${formattedMetric}
+    </div>
+    <div style="display: flex">
+      <span style="flex-grow: ${goodGrow}; margin-right: 1px;">
         <div class="good bar"></div>
-    </span>
-    <span style="flex-grow: ${fairGrow}; margin-left: 1px; margin-right: 1px">
+      </span>
+      <span style="flex-grow: ${fairGrow}; margin-left: 1px; margin-right: 1px">
         <div class="fair bar"></div>
-    </span>
-    <span style="flex-grow: ${poorGrow}; margin-left: 1px">
+      </span>
+      <span style="flex-grow: ${poorGrow}; margin-left: 1px">
         <div class="poor bar"></div>
-    </span>
-  </div>
+      </span>
+    </div>
     <div class="marker" style="padding-left: calc(${metricPos}% - ${markerAdjust}px);"></div>
-</div>`;
+  </div>`;
 };
