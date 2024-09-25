@@ -18,9 +18,35 @@ import {
 import { fetchPerformanceData } from "./performance/apis/pagespeed-insights";
 import { Translations } from "./translations";
 
+export interface Configuration {
+  "background-color"?: string;
+  "text-color"?: string;
+  "button-color"?: string;
+  "button-text-color"?: string;
+  "spinner-color"?: string;
+  "font-size"?: string;
+  "form-height"?: string;
+  "min-container-height"?: string;
+  "legend-link-color"?: string;
+}
+
+const configuration: Array<keyof Configuration> = [
+  "background-color",
+  "text-color",
+  "button-color",
+  "button-text-color",
+  "spinner-color",
+  "font-size",
+  "form-height",
+  "min-container-height",
+  "legend-link-color",
+];
+
 export class WebsiteAnalyzer extends HTMLElement {
   constructor() {
     super();
+  }
+  connectedCallback() {
     const translations = TRANSLATIONS as Translations;
 
     try {
@@ -36,6 +62,14 @@ export class WebsiteAnalyzer extends HTMLElement {
       shadowRoot.appendChild(template.content.cloneNode(true));
 
       const container = getContainer(shadowRoot);
+
+      // apply configuration styles
+      configuration.forEach((key) => {
+        if (this.hasAttribute(key)) {
+          container.style.setProperty(`--wa-wc-${key}`, this.getAttribute(key));
+        }
+      });
+
       const form = getForm(shadowRoot);
       const input = getInput(shadowRoot);
 

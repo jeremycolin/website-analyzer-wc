@@ -1,31 +1,43 @@
 #container {
+  --wa-wc-background-color: #ffffff;
+  --wa-wc-text-color: #000000;
+  --wa-wc-button-color: #475569;
+  --wa-wc-button-text-color: #ffffff;
+  --wa-wc-spinner-color: #475569;
+  --wa-wc-font-size: 1rem;
+  --wa-wc-form-height: 3rem;
+  --wa-wc-min-container-height: 27rem;
+  --wa-wc-legend-link-color: revert;
+}
+
+#container {
   display: flex;
   flex-direction: column;
   padding: 1rem;
   padding-bottom: 0.5rem;
-  min-height: 27rem;
-  background-color: #ffffff;
+  min-height: var(--wa-wc-min-container-height);
+  background-color: var(--wa-wc-background-color);
   line-height: initial;
 }
 
 #form {
   display: flex;
-  height: 3rem;
+  height: var(--wa-wc-form-height);
 }
 
 #input {
   flex: 1;
   padding: 0 0.5rem;
   margin-right: 1rem;
-  background-color: #ffffff;
-  color: #000000;
-  border: 2px solid #94a3b8;
+  background-color: var(--wa-wc-background-color);
+  color: var(--wa-wc-text-color);
+  border: 2px solid color-mix(in srgb, var(--wa-wc-button-color) 50%, transparent);
   border-radius: 4px;
   outline: none;
 }
 
 #input:focus {
-  border: 2px solid #475569;
+  border: 2px solid var(--wa-wc-button-color);
 }
 
 #input.error {
@@ -42,36 +54,41 @@ button {
   cursor: pointer;
   border: 0;
   padding: 0 1rem;
-  background: #475569;
-  color: #ffffff;
+  background: var(--wa-wc-button-color);
+  color: var(--wa-wc-button-text-color);
 }
 
 #loading-spinner {
   height: 4rem;
   width: 4rem;
   margin: auto;
+  color: var(--wa-wc-spinner-color);
 }
 
 #no-data {
-  color: #000000;
+  color: var(--wa-wc-text-color);
   margin: auto;
 }
 
 #performance-bars-container-legend {
   font-weight: 600;
   margin-top: 2rem;
-  color: #000000;
+  color: var(--wa-wc-text-color);
   text-align: left;
 }
 
 #performance-bar {
-  color: #000000;
+  color: var(--wa-wc-text-color);
   height: 5rem;
 }
 
 .legend-metric-title {
   text-align: left;
   margin-top: 1.5rem;
+}
+
+.legend-metric-link {
+  color: var(--wa-wc-legend-link-color);
 }
 
 .legend-metric {
@@ -87,7 +104,7 @@ button {
 
 .marker {
   display: inline-block;
-  border-right: 2px solid black;
+  border-right: 2px solid var(--wa-wc-text-color);
   height: 2rem;
   position: relative;
   top: -24px;
@@ -111,7 +128,7 @@ button {
 button,
 .legend-metric-title,
 .legend-metric {
-  font-size: 1rem;
+  font-size: var(--wa-wc-font-size);
 }
 
 @media only screen and (max-width: 600px) {
@@ -121,7 +138,7 @@ button,
   button,
   .legend-metric-title,
   .legend-metric {
-    font-size: 0.8rem;
+    font-size: calc(var(--wa-wc-font-size) * 0.8);
   }
 
   .legend-metric-title {
@@ -133,6 +150,6 @@ button,
   }
 
   #container {
-    min-height: 24rem;
+    min-height: calc(var(--wa-wc-min-container-height) * 24 / 27);
   }
 }

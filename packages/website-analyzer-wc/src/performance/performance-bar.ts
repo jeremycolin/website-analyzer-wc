@@ -28,7 +28,7 @@ export const performanceBar = (value: number, metric: Vital, translations: Trans
   return html`<div id="performance-bar">
     <div class="legend-metric-title">
       ${translations[`${metric}.legend`]}
-      <a href="https://web.dev/${metric}">${metric.toUpperCase()}</a>
+      <a href="https://web.dev/${metric}" class="legend-metric-link">${metric.toUpperCase()}</a>
     </div>
     <div
       class="legend-metric"
